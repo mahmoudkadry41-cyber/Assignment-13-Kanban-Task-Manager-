@@ -84,9 +84,10 @@
             finished: false,
             createdwhen: Date.now(),
         };
-        if ((addbtn.innerText = "Update Task")) {
+        if ((AddTask.innerText === "Update Task")) {
             tasklist.splice(currentindex, 1, task);
             console.log(tasklist[currentindex]);
+            AddTask.innerText = "Add task";
         }
         else {
             tasklist.push(task);
@@ -102,7 +103,7 @@
         Priority.value = tasklist[index].Priority;
         date.value = tasklist[index].date;
         Description.value = tasklist[index].Description;
-        addbtn.innerText = "Update Task";
+        AddTask.innerText = "Update Task";
     };
     function displaytasks() {
         ToDo.innerHTML = '';
@@ -114,7 +115,6 @@
         for (let i = 0; i < tasklist.length; i++) {
             if (tasklist[i].todo === true) {
                 todocount++;
-                todocounter.innerText = `${todocount} task/s`;
             }
             else if (tasklist[i].onprogress === true) {
                 progresscount++;
@@ -122,9 +122,39 @@
             else if (tasklist[i].finished === true) {
                 competedcount++;
             }
-            todocounter.innerText = `${todocount} task/s`;
-            progresscounter.innerText = `${progresscount} task/s`;
-            completedcounter.innerText = `${competedcount} task/s`;
+        }
+        todocounter.innerText = `${todocount} task/s`;
+        progresscounter.innerText = `${progresscount} task/s`;
+        completedcounter.innerText = `${competedcount} task/s`;
+        if (todocount === 0) {
+            ToDo.innerHTML = `
+    <div class="noTask">
+        <div class="mt-10 w-full h-42 flex flex-col justify-center items-center">
+            <i class="fa-solid fa-folder-open text-[50px]" style="color: #c5cfdb;"></i>
+            <p class="text-[#90a1b9] text-lg">No tasks yet</p>
+            <p class="text-[#90a1b9] text-sm">Click + to add one</p>
+        </div>
+    </div>`;
+        }
+        if (progresscount === 0) {
+            InProgress.innerHTML = `
+    <div class="noTask">
+        <div class="mt-10 w-full h-42 flex flex-col justify-center items-center">
+            <i class="fa-solid fa-folder-open text-[50px]" style="color: #c5cfdb;"></i>
+            <p class="text-[#90a1b9] text-lg">No tasks yet</p>
+            <p class="text-[#90a1b9] text-sm">Click + to add one</p>
+        </div>
+    </div>`;
+        }
+        if (competedcount === 0) {
+            Completed.innerHTML = `
+    <div class="noTask">
+        <div class="mt-10 w-full h-42 flex flex-col justify-center items-center">
+            <i class="fa-solid fa-folder-open text-[50px]" style="color: #c5cfdb;"></i>
+            <p class="text-[#90a1b9] text-lg">No tasks yet</p>
+            <p class="text-[#90a1b9] text-sm">Click + to add one</p>
+        </div>
+    </div>`;
         }
         for (let i = 0; i < tasklist.length; i++) {
             if (tasklist[i].todo === true) {

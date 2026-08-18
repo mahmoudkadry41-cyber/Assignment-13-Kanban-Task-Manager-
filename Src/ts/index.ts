@@ -103,12 +103,12 @@ if (selectedDate < today) {
      createdwhen: Date.now(),
    };
 
-   if ((addbtn.innerText = "Update Task")) {
-    tasklist.splice(currentindex,1,task);
-    console.log(tasklist[currentindex])
-   }else{
-   tasklist.push(task);
-
+   if ((AddTask.innerText === "Update Task")) {
+     tasklist.splice(currentindex, 1, task);
+     console.log(tasklist[currentindex]);
+     AddTask.innerText = "Add task";
+   } else {
+     tasklist.push(task);
    }
 
    localStorage.setItem("tasklist", JSON.stringify(tasklist));
@@ -122,7 +122,7 @@ if (selectedDate < today) {
   Priority.value = tasklist[index].Priority;
   date.value = tasklist[index].date;
   Description.value = tasklist[index].Description;
-  addbtn.innerText = "Update Task"
+  AddTask.innerText = "Update Task";
 }
 
 
@@ -138,22 +138,51 @@ competedcount = 0;
 for (let i = 0; i < tasklist.length; i++) {
   if (tasklist[i].todo === true) {
     todocount++;
-    todocounter.innerText = `${todocount} task/s`;
   } else if (tasklist[i].onprogress === true) {
     progresscount++;
   } else if (tasklist[i].finished === true) {
     competedcount++;
-    
   }
+
+}
   todocounter.innerText = `${todocount} task/s`;
   progresscounter.innerText = `${progresscount} task/s`;
   completedcounter.innerText = `${competedcount} task/s`;
-}
+  if (todocount === 0) {
+    ToDo.innerHTML = `
+    <div class="noTask">
+        <div class="mt-10 w-full h-42 flex flex-col justify-center items-center">
+            <i class="fa-solid fa-folder-open text-[50px]" style="color: #c5cfdb;"></i>
+            <p class="text-[#90a1b9] text-lg">No tasks yet</p>
+            <p class="text-[#90a1b9] text-sm">Click + to add one</p>
+        </div>
+    </div>`;
+  }
+  if (progresscount === 0) {
+    InProgress.innerHTML = `
+    <div class="noTask">
+        <div class="mt-10 w-full h-42 flex flex-col justify-center items-center">
+            <i class="fa-solid fa-folder-open text-[50px]" style="color: #c5cfdb;"></i>
+            <p class="text-[#90a1b9] text-lg">No tasks yet</p>
+            <p class="text-[#90a1b9] text-sm">Click + to add one</p>
+        </div>
+    </div>`;
+  }
+  if (competedcount === 0) {
+    Completed.innerHTML = `
+    <div class="noTask">
+        <div class="mt-10 w-full h-42 flex flex-col justify-center items-center">
+            <i class="fa-solid fa-folder-open text-[50px]" style="color: #c5cfdb;"></i>
+            <p class="text-[#90a1b9] text-lg">No tasks yet</p>
+            <p class="text-[#90a1b9] text-sm">Click + to add one</p>
+        </div>
+    </div>`;
+  }
 
 
-    for(let i=0 ; i<tasklist.length;i++){
-        if(tasklist[i].todo===true){
-            ToDo.innerHTML += `
+  for (let i = 0; i < tasklist.length; i++) {
+    if (tasklist[i].todo === true) {
+      ToDo.innerHTML += `
             <div id="TaskCard" class="w-full min-h-62 bg-white rounded-lg p-5 flex flex-col justify-between shadow-lg">
                         <div class="flex justify-between items-center">
                             <div class="flex flex-row items-center gap-2">
@@ -229,8 +258,8 @@ for (let i = 0; i < tasklist.length; i++) {
                 
                     </div>
             `;
-        }else  if (tasklist[i].onprogress === true) {
-          InProgress.innerHTML += `
+    } else if (tasklist[i].onprogress === true) {
+      InProgress.innerHTML += `
             <div id="TaskCard" class="w-full min-h-62 bg-white rounded-lg p-5 flex flex-col justify-between shadow-lg">
                         <div class="flex justify-between items-center">
                             <div class="flex flex-row items-center gap-2">
@@ -305,8 +334,8 @@ for (let i = 0; i < tasklist.length; i++) {
                 
                     </div>
             `;
-        } else if (tasklist[i].finished === true) {
-          Completed.innerHTML += `
+    } else if (tasklist[i].finished === true) {
+      Completed.innerHTML += `
             <div id="TaskCard" class="w-full min-h-62 bg-white rounded-lg p-5 flex flex-col justify-between shadow-lg">
                         <div class="flex justify-between items-center">
                             <div class="flex flex-row items-center gap-2">
@@ -381,9 +410,10 @@ for (let i = 0; i < tasklist.length; i++) {
                 
                     </div>
             `;
-        }
-    
     }
+  }
+
+  
 clearform()
 
  }
