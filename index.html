@@ -11,14 +11,14 @@
 </head>
 
 <body>
-    <section class="flex flex-col justify-between min-h-screen bg-[#F3F6FB]">
+    <section id="MainBody" class="flex flex-col justify-between min-h-screen bg-[#F3F6FB]">
         <nav class="fixed top-0 h-15 left-0 right-0 bg-linear-to-r from-[#5239F7] to-[#9710FA]">
             <div class="container m-auto flex w-full h-full justify-between items-center ps-3 pe-3">
                 <button class="text-white text-2xl font-bold">
                     <i class="fa-solid fa-table-columns" style="color: rgb(255, 255, 255);"></i> Kanban
                 </button>
-                <button class="bg-[#A945FB] hover:bg-[#B45DFC] rounded-sm w-9.5 h-9.5"><i class="fa-solid fa-plus"
-                        style="color: rgb(255, 255, 255);"></i>
+                <button id="add-task" class="bg-[#A945FB] hover:bg-[#B45DFC] rounded-sm w-9.5 h-9.5"><i
+                        class="fa-solid fa-plus" style="color: rgb(255, 255, 255);"></i>
                 </button>
 
             </div>
@@ -34,60 +34,68 @@
                             style="color: #62748e;"></i></button>
                     <div class="flex flex-col gap-1 ">
                         <p class=" leading-none font-medium text-[#1d293d]">To Do</p>
-                        <p class="leading-none font-light text-[#90a1b9] text-sm">0 tasks</p>
+                        <p id="todocounter" class="leading-none font-light text-[#90a1b9] text-sm">0 tasks</p>
                     </div>
                 </div>
-                <div class="w-full min-h-62 bg-white rounded-lg p-5 flex flex-col justify-between shadow-lg">
-                    <div class="flex justify-between items-center">
-                        <div class="flex flex-row items-center gap-2">
-                            <div class="w-1.5 h-1.5 rounded-lg bg-[#90a1b9]"></div>
-                            <p class="text-xs text-[#90a1b9]">#001</p>
+                <div id="ToDo">
+                    <div id="TaskCard"
+                        class="w-full min-h-62 bg-white rounded-lg p-5 flex flex-col justify-between shadow-lg">
+                        <div class="flex justify-between items-center">
+                            <div class="flex flex-row items-center gap-2">
+                                <div class="w-1.5 h-1.5 rounded-lg bg-[#90a1b9]"></div>
+                                <p class="text-xs text-[#90a1b9]">#001</p>
+                            </div>
+                            <div class="flex flex-row items-center gap-2">
+                                <button
+                                    class="hover:bg-[#EEF2FF] rounded-sm w-5.5 h-5.5 flex justify-center items-center transition duration-300"><i
+                                        class="fa-solid fa-pen text-xs " style="color: #90a1b9;"></i>
+                                </button>
+                                <button
+                                    class="hover:bg-[#EEF2FF] rounded-sm w-5.5 h-5.5 flex justify-center items-center transition duration-300"><i
+                                        class="fa-solid fa-trash text-xs " style="color: #90a1b9;"></i>
+                                </button>
+                            </div>
                         </div>
-                        <div class="flex flex-row items-center gap-2">
-                            <button
-                                class="hover:bg-[#EEF2FF] rounded-sm w-5.5 h-5.5 flex justify-center items-center transition duration-300"><i
-                                    class="fa-solid fa-pen text-xs " style="color: #90a1b9;"></i>
-                            </button>
-                            <button
-                                class="hover:bg-[#EEF2FF] rounded-sm w-5.5 h-5.5 flex justify-center items-center transition duration-300"><i
-                                    class="fa-solid fa-trash text-xs " style="color: #90a1b9;"></i>
-                            </button>
+                        <div class="flex flex-col gap-2.5 border-b border-b-gray-200 pb-3">
+                            <p class="text-[#1d293d] text-lg font-bold">what needs to be done</p>
+                            <p class="text-[#62748e] text-md font-light">description bla bla bla</p>
+                            <div>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 inset-ring inset-ring-red-600/10 gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-lg bg-red-700"></div> High Priority
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 inset-ring inset-ring-green-600/20 gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-lg bg-green-700"></div>Low Priority
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 inset-ring inset-ring-yellow-600/20 gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-lg bg-[#FE9A00]"></div>Low Priority
+                                </span>
+                            </div>
+                            <div class="flex flex-row items-center gap-4">
+                                <p class="text-xs text-[#90a1b9]"><i class="fa-regular fa-calendar text-xs "
+                                        style="color: #90a1b9;"></i>
+                                    Aug 27</p>
+                                <p class="text-xs text-[#90a1b9]"><i class="fa-regular fa-clock text-xs "
+                                        style="color: #90a1b9;"></i> Just
+                                    now</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="flex flex-col gap-2.5 border-b border-b-gray-200 pb-3">
-                        <p class="text-[#1d293d] text-lg font-bold">what needs to be done</p>
-                        <p class="text-[#62748e] text-md font-light">description bla bla bla</p>
-                        <div>
-                            <span
-                                class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 inset-ring inset-ring-red-600/10 gap-2">
-                                <div class="w-1.5 h-1.5 rounded-lg bg-red-700"></div> High Priority
-                            </span>
-                            <span
-                                class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 inset-ring inset-ring-green-600/20 gap-2">
-                                <div class="w-1.5 h-1.5 rounded-lg bg-green-700"></div>Low Priority
-                            </span>
-                            <span
-                                class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 inset-ring inset-ring-yellow-600/20 gap-2">
-                                <div class="w-1.5 h-1.5 rounded-lg bg-[#FE9A00]"></div>Low Priority
-                            </span>
-                        </div>
-                        <div class="flex flex-row items-center gap-4">
-                            <p class="text-xs text-[#90a1b9]"><i class="fa-regular fa-calendar text-xs "
-                                    style="color: #90a1b9;"></i> Aug 27</p>
-                            <p class="text-xs text-[#90a1b9]"><i class="fa-regular fa-clock text-xs "
-                                    style="color: #90a1b9;"></i> Just now</p>
-                        </div>
-                    </div>
 
-                    <div class="flex justify-start items-center gap-2 w-full">
-                        <button
-                            class="w-30 h-8 rounded-md bg-[#FEF3C6] hover:bg-[#FEE685] cursor-pointer text-xs font-medium text-[#b55200]"> <i class="fa-solid fa-play" style="color: #b55200;"></i> Start</button>
-                        <button
-                            class="w-30 h-8 bg-[#D0FAE5] hover:bg-emerald-200 rounded-md cursor-pointer text-xs font-medium text-[#007a55]"><i
-                                class="fa-solid fa-check" style="color: #007a55;"></i> Add task</button>
+                        <div class="flex justify-start items-center gap-2 w-full">
+                            <button 
+                                class="w-30 h-8 rounded-md bg-[#FEF3C6] hover:bg-[#FEE685] cursor-pointer text-xs font-medium text-[#b55200]">
+                                <i class="fa-solid fa-play" style="color: #b55200;"></i> Start</button>
+                            <button
+                                class="w-30 h-8 bg-[#D0FAE5] hover:bg-emerald-200 rounded-md cursor-pointer text-xs font-medium text-[#007a55]"><i
+                                    class="fa-solid fa-check" style="color: #007a55;"></i> Add task</button>
+                        </div>
+
                     </div>
 
                 </div>
+
 
                 <!-- ------------------------------notasks ------------------------- -->
                 <!-- <div class="noTask ">
@@ -103,11 +111,67 @@
                     <button class="bg-[#FFFBEB] rounded-lg w-9.5 h-9.5"><i class="fa-solid fa-spinner"
                             style="color: #FE9A00;"></i></button>
                     <div class="flex flex-col gap-1 ">
-                        <p class=" leading-none font-medium text-[#1d293d]">In Progress</p>
-                        <p class="leading-none font-light text-[#90a1b9] text-sm">0 tasks</p>
+                        <p class="leading-none font-medium text-[#1d293d]">In Progress</p>
+                        <p id="progresscounter" class="leading-none font-light text-[#90a1b9] text-sm">0 tasks</p>
                     </div>
                 </div>
-
+                <div id="InProgress" >
+                    <div id="TaskCard" class="w-full min-h-62 bg-white rounded-lg p-5 flex flex-col justify-between shadow-lg">
+                        <div class="flex justify-between items-center">
+                            <div class="flex flex-row items-center gap-2">
+                                <div class="w-1.5 h-1.5 rounded-lg bg-[#90a1b9]"></div>
+                                <p class="text-xs text-[#90a1b9]">#001</p>
+                            </div>
+                            <div class="flex flex-row items-center gap-2">
+                                <button
+                                    class="hover:bg-[#EEF2FF] rounded-sm w-5.5 h-5.5 flex justify-center items-center transition duration-300"><i
+                                        class="fa-solid fa-pen text-xs " style="color: #90a1b9;"></i>
+                                </button>
+                                <button
+                                    class="hover:bg-[#EEF2FF] rounded-sm w-5.5 h-5.5 flex justify-center items-center transition duration-300"><i
+                                        class="fa-solid fa-trash text-xs " style="color: #90a1b9;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2.5 border-b border-b-gray-200 pb-3">
+                            <p class="text-[#1d293d] text-lg font-bold">what needs to be done</p>
+                            <p class="text-[#62748e] text-md font-light">description bla bla bla</p>
+                            <div>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 inset-ring inset-ring-red-600/10 gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-lg bg-red-700"></div> High Priority
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 inset-ring inset-ring-green-600/20 gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-lg bg-green-700"></div>Low Priority
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 inset-ring inset-ring-yellow-600/20 gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-lg bg-[#FE9A00]"></div>Low Priority
+                                </span>
+                            </div>
+                            <div class="flex flex-row items-center gap-4">
+                                <p class="text-xs text-[#90a1b9]"><i class="fa-regular fa-calendar text-xs "
+                                        style="color: #90a1b9;"></i>
+                                    Aug 27</p>
+                                <p class="text-xs text-[#90a1b9]"><i class="fa-regular fa-clock text-xs " style="color: #90a1b9;"></i>
+                                    Just
+                                    now</p>
+                            </div>
+                        </div>
+                
+                        <div class="flex justify-start items-center gap-2 w-full">
+                            <button
+                                class="w-30 h-8 rounded-md bg-[#FEF3C6] hover:bg-[#FEE685] cursor-pointer text-xs font-medium text-[#b55200]">
+                                <i class="fa-solid fa-play" style="color: #b55200;"></i> Start</button>
+                            <button
+                                class="w-30 h-8 bg-[#D0FAE5] hover:bg-emerald-200 rounded-md cursor-pointer text-xs font-medium text-[#007a55]"><i
+                                    class="fa-solid fa-check" style="color: #007a55;"></i> Add task</button>
+                        </div>
+                
+                    </div>
+                
+                </div>
             </div>
             <div class="bg-[#FBFCFD] rounded-2xl p-3.5 min-h-121 shadow-lg flex flex-col gap-4 ">
                 <div class="w-full h-12.5  flex flex-row justify-start items-center gap-2.5 mb-5">
@@ -115,10 +179,66 @@
                             style="color: #00BC7D;"></i></button>
                     <div class="flex flex-col gap-1 ">
                         <p class=" leading-none font-medium text-[#1d293d]">Completed</p>
-                        <p class="leading-none font-light text-[#90a1b9] text-sm">0 tasks</p>
+                        <p id="completedcounter" class="leading-none font-light text-[#90a1b9] text-sm">0 tasks</p>
                     </div>
                 </div>
-
+                <div id="Completed" >
+                    <div id="TaskCard" class="w-full min-h-62 bg-white rounded-lg p-5 flex flex-col justify-between shadow-lg">
+                        <div class="flex justify-between items-center">
+                            <div class="flex flex-row items-center gap-2">
+                                <div class="w-1.5 h-1.5 rounded-lg bg-[#90a1b9]"></div>
+                                <p class="text-xs text-[#90a1b9]">#001</p>
+                            </div>
+                            <div class="flex flex-row items-center gap-2">
+                                <button
+                                    class="hover:bg-[#EEF2FF] rounded-sm w-5.5 h-5.5 flex justify-center items-center transition duration-300"><i
+                                        class="fa-solid fa-pen text-xs " style="color: #90a1b9;"></i>
+                                </button>
+                                <button
+                                    class="hover:bg-[#EEF2FF] rounded-sm w-5.5 h-5.5 flex justify-center items-center transition duration-300"><i
+                                        class="fa-solid fa-trash text-xs " style="color: #90a1b9;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="flex flex-col gap-2.5 border-b border-b-gray-200 pb-3">
+                            <p class="text-[#1d293d] text-lg font-bold">what needs to be done</p>
+                            <p class="text-[#62748e] text-md font-light">description bla bla bla</p>
+                            <div>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-red-50 px-2 py-1 text-xs font-medium text-red-700 inset-ring inset-ring-red-600/10 gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-lg bg-red-700"></div> High Priority
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 inset-ring inset-ring-green-600/20 gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-lg bg-green-700"></div>Low Priority
+                                </span>
+                                <span
+                                    class="inline-flex items-center rounded-md bg-yellow-50 px-2 py-1 text-xs font-medium text-yellow-800 inset-ring inset-ring-yellow-600/20 gap-2">
+                                    <div class="w-1.5 h-1.5 rounded-lg bg-[#FE9A00]"></div>Low Priority
+                                </span>
+                            </div>
+                            <div class="flex flex-row items-center gap-4">
+                                <p class="text-xs text-[#90a1b9]"><i class="fa-regular fa-calendar text-xs "
+                                        style="color: #90a1b9;"></i>
+                                    Aug 27</p>
+                                <p class="text-xs text-[#90a1b9]"><i class="fa-regular fa-clock text-xs " style="color: #90a1b9;"></i>
+                                    Just
+                                    now</p>
+                            </div>
+                        </div>
+                
+                        <div class="flex justify-start items-center gap-2 w-full">
+                            <button
+                                class="w-30 h-8 rounded-md bg-[#FEF3C6] hover:bg-[#FEE685] cursor-pointer text-xs font-medium text-[#b55200]">
+                                <i class="fa-solid fa-play" style="color: #b55200;"></i> Start</button>
+                            <button
+                                class="w-30 h-8 bg-[#D0FAE5] hover:bg-emerald-200 rounded-md cursor-pointer text-xs font-medium text-[#007a55]"><i
+                                    class="fa-solid fa-check" style="color: #007a55;"></i> Add task</button>
+                        </div>
+                
+                    </div>
+                
+                </div>
             </div>
         </section>
 
@@ -133,20 +253,21 @@
 
 
     </section>
-    <section class="h-screen w-full backdrop-blur-md hidden top-0 flex justify-center items-center bg-black/50 ">
+    <section id="Crud"
+        class="h-screen w-full backdrop-blur-md hidden top-0 flex justify-center items-center bg-black/50 ">
 
         <div class="bg-[#FBFCFD] rounded-2xl h-126 w-150 shadow-lg ">
             <div class="h-20 w-full border-b border-b-gray-200 p-3.5 flex justify-between items-center">
                 <p class="text-[#1d293d] text-xl font-bold">Create New Task</p>
-                <button class="flex justify-center items-center w-7 h-7 rounded-md hover:bg-[#F1F5F9] "><i
+                <button id="Close" class="flex justify-center items-center w-7 h-7 rounded-md hover:bg-[#F1F5F9] "><i
                         class="fa-solid fa-x" style="color: #8fa0b8;"></i></button>
             </div>
             <form action="">
                 <div class="w-full h-[70%]  p-4 flex gap-2 flex-col ">
                     <label for="taskTitle"><i class="fa-solid fa-h fa-lg" style="color: #8fa0b8;"></i> Task Title <span
                             class="text-red-500">*</span></label>
-                    <input type="text" id="taskTitle" name="taskTitle" placeholder="What needs to be done?"
-                        class="rounded-md">
+                    <input type="text"  id="taskTitle" name="taskTitle" placeholder="What needs to be done?"
+                        class="rounded-md" >
                 </div>
                 <div class="flex">
                     <div class="w-full h-[70%] p-4 flex gap-2 flex-col ">
@@ -176,9 +297,10 @@
                 </div>
             </form>
             <div class="flex justify-around w-full">
-                <button
+                <button id="Cancle"
                     class="w-60 h-10 rounded-md bg-[#F1F5F9] hover:bg-[#E2E8F0] cursor-pointer font-bold text-[#314158]">Cancle</button>
-                <button class="w-60 h-10 bg-[#4F39F6] hover:[#432DD7] rounded-md cursor-pointer font-bold text-white"><i
+                <button id="AddTask"
+                    class="w-60 h-10 bg-[#4F39F6] hover:[#432DD7] rounded-md cursor-pointer font-bold text-white"><i
                         class="fa-solid fa-plus" style="color: rgb(255, 255, 255);"></i> Add task</button>
             </div>
 
@@ -191,8 +313,8 @@
 
 
     <script src="./Src/js/all.min.js"></script>
-    <script src="./Src/Ts/index.ts"></script>
-    <script src="./Src/js/index.js"></script>
+    <script src="./index.js"></script>
+
 </body>
 
 </html>
